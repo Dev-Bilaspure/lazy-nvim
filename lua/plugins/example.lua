@@ -69,17 +69,17 @@ return {
       })
     end,
     enabled = false,
-  }
+  },
   -- -- add gruvbox
   -- { "ellisonleao/gruvbox.nvim" },
 
   -- -- Configure LazyVim to load gruvbox
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "gruvbox",
-  --   },
-  -- },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "tokyonight-night",
+    },
+  },
 
   -- -- change trouble config
   -- {
