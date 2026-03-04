@@ -80,8 +80,93 @@ return {
       colorscheme = "tokyonight-night",
     },
   },
-
   -- -- change trouble config
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        vtsls = {},
+        html = {},
+        cssls = {},
+        jdtls = {},
+        gopls = {},
+        pyright = {},
+        clangd = {},
+        yamlls = {},
+        jsonls = {},
+        dockerls = {},
+        bashls = {},
+        marksman = {},
+      },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "bash",
+        "c",
+        "cpp",
+        "css",
+        "dockerfile",
+        "go",
+        "html",
+        "java",
+        "javascript",
+        "json",
+        "kotlin",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "tsx",
+        "typescript",
+        "yaml",
+      },
+    },
+  },
+  -- Auto-install non-LSP tools (formatters, linters, etc.)
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = {
+      ensure_installed = {
+        "vtsls",
+        "biome",
+        "black",
+        "clang-format",
+        "google-java-format",
+        "shfmt",
+        "stylua",
+        "goimports",
+      }
+    },
+  },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      format_on_save = {
+        timeout_ms = 1000,
+        lsp_fallback = false,
+      },
+      formatters_by_ft = {
+        javascript = { "biome" },
+        typescript = { "biome" },
+        javascriptreact = { "biome" },
+        typescriptreact = { "biome" },
+        json = { "biome" },
+
+        python = { "black" },
+        go = { "gofmt" }, -- uses system gofmt
+        java = { "google-java-format" },
+        c = { "clang_format" },
+        cpp = { "clang_format" },
+        yaml = { "biome" },
+        bash = { "shfmt" },
+        lua = { "stylua" },
+      },
+    },
+  },
+
   -- {
   --   "folke/trouble.nvim",
   --   -- opts will be merged with the parent spec
